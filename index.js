@@ -30,7 +30,7 @@ app.post("/api/mail", async (req, res) => {
       secure: true, // Menggunakan secure: true untuk port 465 (SSL)
       auth: {
         user: "jasteb-rlx002@my.panell-vip.xyz",
-        pass: pass,
+        pass: "Asep@@12344",
       },
     });
 
