@@ -27,7 +27,7 @@ app.post("/api/mail", (req, res) => {
       await transporter.sendMail(mailDetails);
       res.json({ status: true, msg: "Email Send Success" });
     } catch (error) {
-      res.status(404).json({ status: false, msg: "Failed To Send mail" });
+      res.status(404).json({ status: false, msg: `${error}` });
     }
   };
 
