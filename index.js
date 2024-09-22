@@ -8,9 +8,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post("/api/mail", async (req, res, next) => {
+app.post("/api/mail", async (req, res) => {
   try {
-    const { password: pass, to, subject, pesan: html } = req.query;
+    const { password: pass, to, subject, pesan: html } = req.body;
 
     // Validasi input
     if (!to || !subject) {
