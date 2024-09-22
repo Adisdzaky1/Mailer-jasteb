@@ -14,10 +14,10 @@ app.post("/api/mail", (req, res) => {
   const htmll = req.body.pesan;
   const sendEmail = async (mailDetails) => {
     const transporter = nodemailer.createTransport({
-      host: "panellvvip.my.id",
-      port: 25,
+      host: "my.panell-vip.xyz",
+      port: 465,
       auth: {
-        user: "admin@panellvvip.my.id",
+        user: "jasteb@my.panell-vip.xyz",
         pass: pass,
       },
     });
@@ -32,7 +32,7 @@ app.post("/api/mail", (req, res) => {
   };
 
   sendEmail({
-    from: "admin@panellvvip.my.id",
+    from: "jasteb@my.panell-vip.xyz",
     to: to,
     subject: subject,
     html: htmll,
