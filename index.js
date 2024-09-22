@@ -14,7 +14,7 @@ app.post("/api/mail", async (req, res) => {
 
     // Validasi input
     if (!pass || !to || !subject || !html) {
-      return res.status(400).json({ status: false, msg: "All fields are required" });
+      return res.status(400).json({ status: false, msg: `All fields are required sub : ${subject} to : ${to}` });
     }
 
     // Validasi apakah alamat email penerima valid
