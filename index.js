@@ -12,19 +12,31 @@ app.post("/api/mail", async (req, res) => {
   try {
     const { password: pass, to, subject, pesan: html } = req.body;
 
+    // Validasi input
+    if (!pass || !to || !subject || !html) {
+      return res.status(400).json({ status: false, msg: "All fields are required" });
+    }
+
+    // Validasi apakah alamat email penerima valid
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(to)) {
+      return res.status(400).json({ status: false, msg: "Invalid email address" });
+    }
+
     const transporter = nodemailer.createTransport({
       host: "my.panell-vip.xyz",
       port: 465,
-      secure: true, // Menggunakan secure: true untuk port 465
+      secure: true, // Menggunakan secure: true untuk port 465 (SSL)
       auth: {
         user: "jasteb-rlx002@my.panell-vip.xyz",
-        pass: "Asep@@12344",
+        pass: pass,
       },
     });
 
+    // Mengirim email
     await transporter.sendMail({
       from: "jasteb-rlx002@my.panell-vip.xyz",
-      to: to,
+      to: to, // Alamat email penerima
       subject: subject,
       html: html,
     });
