@@ -21,9 +21,6 @@ app.post("/api/mail", (req, res) => {
         user: "admin@panellvvip.my.id",
         pass: pass,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
     });
 
     try {
