@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post("/api/mail", async (req, res) => {
+app.post("/api/mail", async (req, res, next) => {
   try {
     const { password: pass, to, subject, pesan: html } = req.body;
 
