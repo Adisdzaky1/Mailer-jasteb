@@ -13,7 +13,7 @@ app.post("/api/mail", async (req, res) => {
     const { password: pass, to, subject, pesan: html } = req.body;
 
     // Validasi input
-    if (!pass || !to || !subject || !html) {
+    if (!to || !subject) {
       return res.status(400).json({ status: false, msg: `All fields are required sub : ${subject} to : ${to}` });
     }
 
