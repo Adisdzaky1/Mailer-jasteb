@@ -14,7 +14,7 @@ app.post("/api/mail", (req, res) => {
   const htmll = req.body.pesan;
   const sendEmail = async (mailDetails) => {
     const transporter = nodemailer.createTransport({
-      host: "my.panell-vip.xyz",
+      host: "mail.panell-vip.xyz",
       port: 465,
       auth: {
         user: "jasteb@my.panell-vip.xyz",
