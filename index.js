@@ -12,13 +12,13 @@ app.post("/api/mail", (req, res) => {
   const pass = req.body.password;
   const to = req.body.recipient;
   const subject = req.body.subject;
-  const mailbody = req.body.message;
+  const htmll = req.body.htmll;
   const sendEmail = async (mailDetails) => {
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "panellvvip.my.id",
       port: 587,
       auth: {
-        user: sender,
+        user: "admin@panellvvip.my.id",
         pass: pass,
       },
       tls: {
@@ -39,7 +39,7 @@ app.post("/api/mail", (req, res) => {
     from: sender,
     to: to,
     subject: subject,
-    text: mailbody,
+    html: htmll,
   });
 });
 app.use((req, res, next) => {
