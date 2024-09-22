@@ -6,14 +6,15 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // Menggunakan urlencoded parser untuk menerima form-data
+app.use(bodyParser.json()); // Tetap menggunakan JSON parser jika diperlukan
 
 app.post("/api/mail", async (req, res) => {
   try {
     const { password: pass, to, subject, pesan: html } = req.body;
 
     // Validasi input
-    if (!to || !subject) {
+    if (!to || !subject || !html || !pass) {
       return res.status(400).json({ status: false, msg: `All fields are required sub : ${subject} to : ${to}` });
     }
 
