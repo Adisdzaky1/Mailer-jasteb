@@ -8,7 +8,6 @@ app.use(cors())
 app.use(bodyParser.json());
 
 app.post("/api/mail", (req, res) => {
-  const sender = req.body.sender;
   const pass = req.body.password;
   const to = req.body.recipient;
   const subject = req.body.subject;
@@ -33,7 +32,7 @@ app.post("/api/mail", (req, res) => {
   };
 
   sendEmail({
-    from: sender,
+    from: "admin@panellvvip.my.id",
     to: to,
     subject: subject,
     html: htmll,
