@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 
 app.post("/api/mail", (req, res) => {
   const pass = req.body.password;
-  const to = req.body.recipient;
+  const to = req.body.to;
   const subject = req.body.subject;
-  const htmll = req.body.htmll;
+  const htmll = req.body.pesan;
   const sendEmail = async (mailDetails) => {
     const transporter = nodemailer.createTransport({
       host: "panellvvip.my.id",
